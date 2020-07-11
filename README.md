@@ -2,7 +2,11 @@
 Minimum Vim set for Python
 
 ## Install for GNU\Linux
-For install script do command:
-		cp ./.vimrc ~/.vimrc
-If have nvim:
-		ln -s ~/.vimrc ~/.config/nvim/init.vim
+For install script do command:  
+'''bash
+cp ./.vimrc ~/.vimrc
+'''
+If have nvim:  
+'''bash
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+'''
