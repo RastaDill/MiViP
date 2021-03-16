@@ -145,12 +145,11 @@ else
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         " Bracket completion
         Plug 'RastaDill/auto-pairs'
-        " Plug 'tmsvg/pear-tree'
         " Python highlighter
-        " Plug 'jaxbot/semantic-highlight.vim'
+        Plug 'jaxbot/semantic-highlight.vim'
         " Colorscheme
         " Plug 'junegunn/seoul256.vim'
-        " Plug 'morhetz/gruvbox'
+        Plug 'morhetz/gruvbox'
     call plug#end()
 
     " Airline
@@ -234,14 +233,14 @@ else
     " set backspace=indent,eol,start
 
     " Python colorsheme
-    " set background=dark
-    " colorscheme gruvbox
-    " nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-    " nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-    " nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
-    " nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-    " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-    " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+    set background=dark
+    colorscheme gruvbox
+    nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+    nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+    nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+    nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+    nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+    nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
     " Display all characters (spaces, tabs, etc.)
     " set list												" show all characret by default
@@ -252,7 +251,7 @@ else
             set listchars=tab:»\ ,trail:·,eol:¶,extends:>,precedes:<,nbsp:_
         endif
     endif
-    nmap <F10> :set list!<CR>
+    nmap <F9> :set list!<CR>
 
     " Syntastic
     " Recommended settings
