@@ -144,7 +144,7 @@ else
         " Autocomplete
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
         " Bracket completion
-        " Plug 'jiangmiao/auto-pairs'
+        Plug 'RastaDill/auto-pairs'
         " Plug 'tmsvg/pear-tree'
         " Python highlighter
         " Plug 'jaxbot/semantic-highlight.vim'
@@ -175,6 +175,7 @@ else
 
     " Linter
     " Autocomplete
+    " Load coc-pyright extension
     let g:coc_global_extensions = [
         \ 'coc-pyright',
     \ ]
@@ -190,6 +191,13 @@ else
     " format on enter, <cr> could be remapped by other vim plugin
     inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    nmap <silent> <F8> <Plug>(coc-diagnostic-next)          " jump to next message
+    nmap <silent> <S-F8> <Plug>(coc-diagnostic-prev)        " jump to previous message
+    nnoremap <silent> <C-S-M> :<C-u>CocList diagnostics<cr> " show all messages
+
+    " Bracket completions
+    "let g:AutoPairsMapCR = 0								" disabled to insert a new indented after <CR> in bracket
+    au Filetype vim let b:AutoPairs = {"(": ")", "[": "]"}	" auto pair for only vim-files
 
     " vim configuration
     set number												" set line number
