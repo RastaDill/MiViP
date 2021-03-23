@@ -141,8 +141,9 @@ else
         " Tag bar
         Plug 'majutsushi/tagbar'
         " Linter
+        Plug 'neomake/neomake'
         " Autocomplete
-        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
         " Bracket completion
         Plug 'RastaDill/auto-pairs'
         " Python highlighter
@@ -150,6 +151,10 @@ else
         " Colorscheme
         " Plug 'junegunn/seoul256.vim'
         Plug 'morhetz/gruvbox'
+
+        " Linter and Autocomplete
+        " Befo use COC commited neomake and vim-plug
+        " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     call plug#end()
 
     " Airline
@@ -173,26 +178,38 @@ else
     let g:tagbar_autofocus = 1								" autofocus on tagbar after he opened
 
     " Linter
-    " Autocomplete
-    " Load coc-pyright extension
-    let g:coc_global_extensions = [
-        \ 'coc-pyright',
-    \ ]
-    " disable completion suggestions
-    let b:coc_suggest_disable = 1
-    " Use <c-space> to trigger completion.
-    if has('nvim')
-        inoremap <silent><expr> <c-space> coc#refresh()
-    else
-        inoremap <silent><expr> <c-@> coc#refresh()
-    endif
-    " Make <CR> auto-select the first completion item and notify coc.nvim to
-    " format on enter, <cr> could be remapped by other vim plugin
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-    nmap <silent> <F8> <Plug>(coc-diagnostic-next)          " jump to next message
-    nmap <silent> <S-F8> <Plug>(coc-diagnostic-prev)        " jump to previous message
-    nnoremap <silent> <C-S-M> :<C-u>CocList diagnostics<cr> " show all messages
+    " settings for flake8
+    let g:neomake_python_flake8_maker = {
+        \ 'args': ['--ignore=E701',  '--format=default'],
+    \ }
+    let g:neomake_python_enabled_makers = ['flake8']        " enable flake8
+    call neomake#configure#automake('w')                    " scan code after write
+    nmap <silent> <C-M> :lopen<CR><C-W>W;                       " open location window
+    nmap <silent> <C-J> :lclose<CR>;                            " close location window
+    nmap <silent> <F8> :lnext<CR>;                          " next error/warning
+    nmap <silent> <S-F8> :lprev<CR>;                        " previous error/warning"
+    " nmap <Leader>ll :ll<CR>;                                " go to current error/warning
+
+    " COC linter and autocomplete
+    " " Load coc-pyright extension
+    " let g:coc_global_extensions = [
+    "     \ 'coc-pyright',
+    " \ ]
+    " " disable completion suggestions
+    " let b:coc_suggest_disable = 1
+    " " Use <c-space> to trigger completion.
+    " if has('nvim')
+    "     inoremap <silent><expr> <c-space> coc#refresh()
+    " else
+    "     inoremap <silent><expr> <c-@> coc#refresh()
+    " endif
+    " " Make <CR> auto-select the first completion item and notify coc.nvim to
+    " " format on enter, <cr> could be remapped by other vim plugin
+    " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+    "                             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    " nmap <silent> <F8> <Plug>(coc-diagnostic-next)          " jump to next message
+    " nmap <silent> <S-F8> <Plug>(coc-diagnostic-prev)        " jump to previous message
+    " nnoremap <silent> <C-S-M> :<C-u>CocList diagnostics<cr> " show all messages
 
     " Bracket completions
     "let g:AutoPairsMapCR = 0								" disabled to insert a new indented after <CR> in bracket
