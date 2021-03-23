@@ -1,0 +1,8 @@
+{
+	"pyright.enable": true,
+	"pyright.disableDiagnostics": true,
+	"python.linting.flake8Enabled": true,
+	"python.linting.flake8Args": [
+        "--ignore=E701,E402"
+    ]
+}
