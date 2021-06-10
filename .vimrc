@@ -144,8 +144,10 @@ else
         Plug 'neomake/neomake'
         " Autocomplete
 
+		" Python indention
+		Plug 'Vimjas/vim-python-pep8-indent'
         " Bracket completion
-        Plug 'RastaDill/auto-pairs'
+        "Plug 'RastaDill/auto-pairs'
         " Python highlighter
         Plug 'jaxbot/semantic-highlight.vim'
         " Colorscheme
@@ -213,14 +215,14 @@ else
 
     " Bracket completions
     "let g:AutoPairsMapCR = 0								" disabled to insert a new indented after <CR> in bracket
-    au Filetype vim let b:AutoPairs = {"(": ")", "[": "]"}	" auto pair for only vim-files
+    "au Filetype vim let b:AutoPairs = {"(": ")", "[": "]"}	" auto pair for only vim-files
 
     " vim configuration
     set number												" set line number
     set cursorline											" highlight cursor line
     set cursorcolumn										" highlight column line
     set colorcolumn=80										" highlight column 80
-    set tabstop=4											" max lenght tab
+    "set tabstop=4											" max lenght tab
     "set relativenumber										" set relativenumber
     set mouse=a												" set mode mouse 'all'
     set smartcase											" automatically switch to a case-sensitive search if you use any capital letters
