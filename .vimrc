@@ -149,9 +149,9 @@ else
         " Bracket completion
         "Plug 'RastaDill/auto-pairs'
         " Python highlighter
-        Plug 'jaxbot/semantic-highlight.vim'
+	Plug 'vim-python/python-syntax'
         " Colorscheme
-	 Plug 'junegunn/seoul256.vim'
+	Plug 'altercation/vim-colors-solarized'
 
         " Linter and Autocomplete
         " Befo use COC commited neomake and vim-plug
@@ -231,13 +231,14 @@ else
     autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
     autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
-    " Python colorsheme
-    " Unified color scheme (default: dark)
-    "   Range:   233 (darkest) ~ 239 (lightest)
-    "   Default: 237
-    let g:seoul256_background = 235
-    colo seoul256
+    " Highlight
+    let g:python_highlight_all = 1
+
+    " Colorsheme
+    syntax enable
+    let g:solarized_termcolors=256
     set background=dark
+    colorscheme solarized
 
     " Display all characters (spaces, tabs, etc.)
     " set list							" show all characret by default
@@ -250,22 +251,8 @@ else
     endif
     nmap <F9> :set list!<CR>
 
-    " Syntastic
-    " Recommended settings
-    " set statusline+=%#warningmsg#
-    " set statusline+=%{SyntasticStatuslineFlag()}
-    " set statusline+=%*
-    " let g:syntastic_always_populate_loc_list = 1
-    " let g:syntastic_auto_loc_list = 1
-    " let g:syntastic_check_on_open = 1
-    " " Display checker-name for that error-message
-    " let g:syntastic_aggregate_errors = 1
-    " " I use the brew to install flake8
-    " let g:syntastic_python_checkers_args=['flake8', 'python3']
-    " let g:syntastic_python_flake8_post_args='--ignore=E265,W191'
-
-    " vnoremap <silent> # :s/^/#/<cr>:noh<cr>
-    " vnoremap <silent> -# :s/^#//<cr>:noh<cr>
+     "vnoremap <silent> # :s/^/#/<cr>:noh<cr>
+     "vnoremap <silent> -# :s/^#//<cr>:noh<cr>
 endif
 
 " new file set title and turn to endline
