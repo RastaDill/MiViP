@@ -238,6 +238,8 @@ else
     "au Filetype vim let b:AutoPairs = {"(": ")", "[": "]"}	" auto pair for only vim-files
 
     " vim configuration
+    autocmd InsertEnter * setlocal spell			" correct inset text from buffer without adiitional spacing in start line
+    autocmd InsertLeave * setlocal nospell
     set number							" set line number
     set cursorline						" highlight cursor line
     set cursorcolumn						" highlight column line
